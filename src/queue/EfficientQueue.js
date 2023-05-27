@@ -1,7 +1,9 @@
 //Queue is First-in First-out FIFO.
 
-// Enqueue => adds an element into the front
+// Enqueue => adds an element into the front.
 // Dequeue => removes an element from the tail.
+
+// this variant of queue has constant time complexity => O(1);
 
 export class EfficientQueue {
   constructor() {
