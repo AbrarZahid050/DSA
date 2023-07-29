@@ -15,6 +15,22 @@ class LinkedList:
     def showSize(self):
         return self.size
 
+    def removeFrom(self, index):
+        if index < 0 or index >= self.size:
+            return None
+        removedNode = None
+        if index == 0:
+            removedNode = self.head
+            self.head = self.head.next
+        else:
+            prevPointer = self.head
+            for i in range(index - 1):
+                prevPointer = prevPointer.next
+            removedNode = prevPointer.next
+            prevPointer.next = removedNode.next
+        self.size -= 1
+        return removedNode.value
+
     def append(self, value):
         node = Node(value)
         if self.isEmpty():
@@ -51,7 +67,7 @@ class LinkedList:
 
     def __str__(self):
         if self.isEmpty():
-            print("Linked list is empty.")
+            return "Linked list is empty."
         else:
             currPointer = self.head
             listValue = ""
@@ -63,10 +79,15 @@ class LinkedList:
 
 if __name__ == "__main__":
     linked_list = LinkedList()
-    linked_list.append(10)
+    print(linked_list)
+    linked_list.insert(10, 0)
     linked_list.append(20)
+    linked_list.insert(15, 1)
+    linked_list.prepend(5)
     linked_list.append(30)
-    linked_list.append(40)
-    linked_list.append(50)
-    linked_list.insert(55, 4)
+    linked_list.insert(25, 4)
+    linked_list.insert(55, 65)
+    print(linked_list)
+    linked_list.removeFrom(3)
+    linked_list.removeFrom(0)
     print(linked_list)

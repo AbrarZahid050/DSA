@@ -62,6 +62,26 @@ export class LinkedList {
     }
   }
 
+  removeFrom(index) {
+    if (index < 0 || index >= this.size) {
+      return null;
+    }
+    let removedNode;
+    if (index === 0) {
+      removedNode = this.head;
+      this.head = this.head.next;
+    } else {
+      let prevPointer = this.head;
+      for (let i = 0; i < index - 1; i++) {
+        prevPointer = prevPointer.next;
+      }
+      removedNode = prevPointer.next;
+      prevPointer.next = removedNode.next;
+    }
+    this.size--;
+    return removedNode.value;
+  }
+
   print() {
     if (this.isEmpty()) {
       console.log("List is empty.");

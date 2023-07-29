@@ -23,6 +23,9 @@ function App() {
   list.insert(25, 4);
   list.insert(55, 67);
   list.print();
+  list.removeFrom(3);
+  list.removeFrom(0);
+  list.print();
   // list.print();
 
   return (
