@@ -4,6 +4,7 @@ import { EfficientQueue } from "./queue/EfficientQueue";
 import { CircularQueue } from "./queue/Circular Queue/CircularQueue";
 import { TestCircular } from "./queue/Circular Queue/TestCircular";
 import { LinkedList } from "./linkedList/LinkedList";
+import LinkedListWithTail from "./linkedList/LinkedListTail";
 import "./App.css";
 
 function App() {
@@ -13,23 +14,12 @@ function App() {
   const circularQueue = new CircularQueue(5);
   const Test = new TestCircular(3);
   const list = new LinkedList();
+  const listWithTail = new LinkedListWithTail();
 
-  list.print();
-  list.insert(10, 0);
-  list.append(20);
-  list.insert(15, 1);
-  list.prepend(5);
-  list.append(30);
-  list.insert(25, 4);
-  list.insert(55, 67);
-  list.print();
-  // list.removeFrom(3);
-  // list.removeFrom(0);
-  // list.print();
-  // list.removeValue(25);
-  // list.print();
-  list.reverse();
-  list.print();
+  listWithTail.prepend(10);
+  listWithTail.prepend(20);
+  listWithTail.prepend(30);
+  listWithTail.print();
 
   return (
     <div>
