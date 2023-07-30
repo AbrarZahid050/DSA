@@ -31,6 +31,47 @@ class LinkedList:
         self.size -= 1
         return removedNode.value
 
+    def removeValue(self, value):
+        if self.isEmpty():
+            return None
+        if self.head.value == value:
+            self.head = self.head.next
+            self.size -= 1
+            return value
+        else:
+            prevPointer = self.head
+            while prevPointer.next and prevPointer.next.value != value:
+                prevPointer = prevPointer.next
+            if prevPointer.next:
+                removedNode = prevPointer.next
+                prevPointer.next = removedNode.next
+                self.size -= 1
+                return value
+            return None
+
+    def search(self, value):
+        if self.isEmpty():
+            return -1
+        else:
+            currPointer = self.head
+            index = 0
+            while currPointer:
+                if currPointer.value == value:
+                    return index
+                currPointer = currPointer.next
+                index += 1
+            return -1
+
+    def reverse(self):
+        currPointer = self.head
+        prevPointer = None
+        while currPointer:
+            nextPointer = currPointer.next
+            currPointer.next = prevPointer
+            prevPointer = currPointer
+            currPointer = nextPointer
+        self.head = prevPointer
+
     def append(self, value):
         node = Node(value)
         if self.isEmpty():
@@ -90,4 +131,6 @@ if __name__ == "__main__":
     print(linked_list)
     linked_list.removeFrom(3)
     linked_list.removeFrom(0)
+    linked_list.removeValue(25)
+    linked_list.reverse()
     print(linked_list)

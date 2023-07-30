@@ -82,6 +82,59 @@ export class LinkedList {
     return removedNode.value;
   }
 
+  removeValue(value) {
+    if (this.isEmpty()) {
+      return null;
+    }
+
+    if (this.head.value === value) {
+      this.head = this.head.next;
+      this.size--;
+      return value;
+    } else {
+      let prevPointer = this.head;
+      while (prevPointer.next && prevPointer.next.value !== value) {
+        prevPointer = prevPointer.next;
+      }
+      if (prevPointer.next) {
+        const removedNode = prevPointer.next;
+        prevPointer.next = removedNode.next;
+        this.size--;
+        return value;
+      }
+      return null;
+    }
+  }
+
+  search(value) {
+    if (this.isEmpty()) {
+      return -1;
+    } else {
+      let currPointer = this.head;
+      let index = 0;
+      while (currPointer) {
+        if (currPointer.value === value) {
+          return index;
+        }
+        index++;
+        currPointer = currPointer.next;
+      }
+      return -1;
+    }
+  }
+
+  reverse() {
+    let prevPointer = null;
+    let currPointer = this.head;
+    while (currPointer) {
+      let nextPointer = currPointer.next;
+      currPointer.next = prevPointer;
+      prevPointer = currPointer;
+      currPointer = nextPointer;
+    }
+    this.head = prevPointer;
+  }
+
   print() {
     if (this.isEmpty()) {
       console.log("List is empty.");
@@ -89,10 +142,10 @@ export class LinkedList {
       let current = this.head;
       let listValue = "";
       while (current) {
-        listValue += `${current.value} `;
+        listValue += `${current.value} -> `;
         current = current.next;
       }
-      console.log(listValue);
+      console.log((listValue += "null"));
     }
   }
 }
