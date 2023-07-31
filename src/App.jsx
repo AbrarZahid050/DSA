@@ -19,6 +19,17 @@ function App() {
   listWithTail.prepend(10);
   listWithTail.prepend(20);
   listWithTail.prepend(30);
+  listWithTail.append(50);
+  listWithTail.append(60);
+  console.log(listWithTail.removeFromEnd());
+  console.log(listWithTail.removeFromEnd());
+  console.log(listWithTail.removeFromEnd());
+  console.log(listWithTail.removeFromEnd());
+  console.log(listWithTail.removeFromEnd());
+  listWithTail.append(10);
+  listWithTail.append(20);
+  listWithTail.append(30);
+  listWithTail.append(40);
   listWithTail.print();
 
   return (

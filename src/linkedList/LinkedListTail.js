@@ -48,9 +48,47 @@ class LinkedListWithTail {
   }
 
   append(value) {
-    const node = new Node();
+    const node = new Node(value);
     if (this.isEmpty()) {
+      this.head = node;
+      this.tail = node;
+    } else {
+      this.tail.next = node;
+      this.tail = node;
     }
+    this.size++;
+    return value;
+  }
+
+  removeFromFront() {
+    let removedNode;
+    if (this.isEmpty()) {
+      return null;
+    } else {
+      removedNode = this.head;
+      this.head = this.head.next;
+    }
+    this.size--;
+    return removedNode.value;
+  }
+
+  removeFromEnd() {
+    let removedNode = this.tail;
+    if (this.isEmpty()) {
+      return null;
+    } else if (this.size === 1) {
+      this.head = null;
+      this.tail = null;
+    } else {
+      let prevPointer = this.head;
+      while (prevPointer.next !== this.tail) {
+        prevPointer = prevPointer.next;
+      }
+      prevPointer.next = null;
+      this.tail = prevPointer;
+    }
+    this.size--;
+    return removedNode.value;
   }
 }
 
