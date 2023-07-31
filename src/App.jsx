@@ -7,6 +7,7 @@ import { LinkedList } from "./linkedList/LinkedList";
 import LinkedListWithTail from "./linkedList/LinkedListTail";
 import { LinkedListStack } from "./linkedList/LinkedListStack";
 import { LinkedListQueue } from "./linkedList/LinkedListQueue";
+import { DoublyLinkedList } from "./DoublyLinkedList/DoublyLinkedList";
 import "./App.css";
 
 function App() {
@@ -19,14 +20,21 @@ function App() {
   const listWithTail = new LinkedListWithTail();
   const linkedListStack = new LinkedListStack();
   const linkedListQueue = new LinkedListQueue();
+  const DoublyList = new DoublyLinkedList();
 
-  console.log(linkedListQueue.showSize());
-  linkedListQueue.enqueue(10);
-  linkedListQueue.enqueue(20);
-  linkedListQueue.enqueue(30);
-  linkedListQueue.print();
-  linkedListQueue.dequeue();
-  linkedListQueue.print();
+  DoublyList.prepend(50);
+  DoublyList.prepend(40);
+  DoublyList.prepend(30);
+  DoublyList.append(60);
+  DoublyList.prepend(20);
+  DoublyList.prepend(10);
+  DoublyList.print();
+  DoublyList.removeFromEnd();
+  DoublyList.removeFromEnd();
+  DoublyList.append(999);
+  DoublyList.print();
+  DoublyList.removeFromEnd();
+  DoublyList.print();
 
   return (
     <div>
