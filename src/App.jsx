@@ -5,6 +5,8 @@ import { CircularQueue } from "./queue/Circular Queue/CircularQueue";
 import { TestCircular } from "./queue/Circular Queue/TestCircular";
 import { LinkedList } from "./linkedList/LinkedList";
 import LinkedListWithTail from "./linkedList/LinkedListTail";
+import { LinkedListStack } from "./linkedList/LinkedListStack";
+import { LinkedListQueue } from "./linkedList/LinkedListQueue";
 import "./App.css";
 
 function App() {
@@ -15,22 +17,16 @@ function App() {
   const Test = new TestCircular(3);
   const list = new LinkedList();
   const listWithTail = new LinkedListWithTail();
+  const linkedListStack = new LinkedListStack();
+  const linkedListQueue = new LinkedListQueue();
 
-  listWithTail.prepend(10);
-  listWithTail.prepend(20);
-  listWithTail.prepend(30);
-  listWithTail.append(50);
-  listWithTail.append(60);
-  console.log(listWithTail.removeFromEnd());
-  console.log(listWithTail.removeFromEnd());
-  console.log(listWithTail.removeFromEnd());
-  console.log(listWithTail.removeFromEnd());
-  console.log(listWithTail.removeFromEnd());
-  listWithTail.append(10);
-  listWithTail.append(20);
-  listWithTail.append(30);
-  listWithTail.append(40);
-  listWithTail.print();
+  console.log(linkedListQueue.showSize());
+  linkedListQueue.enqueue(10);
+  linkedListQueue.enqueue(20);
+  linkedListQueue.enqueue(30);
+  linkedListQueue.print();
+  linkedListQueue.dequeue();
+  linkedListQueue.print();
 
   return (
     <div>
