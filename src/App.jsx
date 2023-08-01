@@ -3,11 +3,15 @@ import { Queue } from "./queue/Queue";
 import { EfficientQueue } from "./queue/EfficientQueue";
 import { CircularQueue } from "./queue/Circular Queue/CircularQueue";
 import { TestCircular } from "./queue/Circular Queue/TestCircular";
+//linked-lists:
 import { LinkedList } from "./linkedList/LinkedList";
 import LinkedListWithTail from "./linkedList/LinkedListTail";
 import { LinkedListStack } from "./linkedList/LinkedListStack";
 import { LinkedListQueue } from "./linkedList/LinkedListQueue";
 import { DoublyLinkedList } from "./DoublyLinkedList/DoublyLinkedList";
+//hash-table:
+import { HashTable } from "./HashTable/HashTable";
+//style:
 import "./App.css";
 
 function App() {
@@ -21,20 +25,11 @@ function App() {
   const linkedListStack = new LinkedListStack();
   const linkedListQueue = new LinkedListQueue();
   const DoublyList = new DoublyLinkedList();
+  const hashTable = new HashTable(50);
 
-  DoublyList.prepend(50);
-  DoublyList.prepend(40);
-  DoublyList.prepend(30);
-  DoublyList.append(60);
-  DoublyList.prepend(20);
-  DoublyList.prepend(10);
-  DoublyList.print();
-  DoublyList.removeFromEnd();
-  DoublyList.removeFromEnd();
-  DoublyList.append(999);
-  DoublyList.print();
-  DoublyList.removeFromEnd();
-  DoublyList.print();
+  hashTable.set("name", "abrar");
+  hashTable.set("age", 32);
+  hashTable.display();
 
   return (
     <div>
