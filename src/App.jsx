@@ -11,6 +11,8 @@ import { LinkedListQueue } from "./linkedList/LinkedListQueue";
 import { DoublyLinkedList } from "./DoublyLinkedList/DoublyLinkedList";
 //hash-table:
 import { HashTable } from "./HashTable/HashTable";
+//binary-search tree:
+import { Tree } from "./BinarySearchTree/BinarySearchTree";
 //style:
 import "./App.css";
 
@@ -26,13 +28,14 @@ function App() {
   const linkedListQueue = new LinkedListQueue();
   const DoublyList = new DoublyLinkedList();
   const hashTable = new HashTable(50);
+  const tree = new Tree();
 
-  hashTable.set("name", "abrar");
-  hashTable.set("age", 32);
-  hashTable.set("mane", "test");
-  hashTable.remove("name");
-  hashTable.display();
-  // hashTable.display();
+  tree.insert(10);
+  tree.insert(5);
+  tree.insert(15);
+  tree.insert(3);
+  tree.insert(7);
+  console.log(tree);
 
   return (
     <div>
