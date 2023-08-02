@@ -29,7 +29,10 @@ function App() {
 
   hashTable.set("name", "abrar");
   hashTable.set("age", 32);
+  hashTable.set("mane", "test");
+  hashTable.remove("name");
   hashTable.display();
+  // hashTable.display();
 
   return (
     <div>
