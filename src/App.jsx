@@ -35,7 +35,8 @@ function App() {
   tree.insert(15);
   tree.insert(3);
   tree.insert(7);
-  console.log(tree);
+
+  console.log(tree.search(tree.root, 7));
 
   return (
     <div>

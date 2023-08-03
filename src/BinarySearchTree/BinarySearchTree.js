@@ -39,4 +39,22 @@ export class Tree {
       }
     }
   }
+
+  test() {
+    return false;
+  }
+
+  search(root, value) {
+    if (!root) {
+      return 23;
+    } else {
+      if (root.value === value) {
+        return true;
+      } else if (root.value > value) {
+        return this.search(root.left, value);
+      } else {
+        return this.search(root.right, value);
+      }
+    }
+  }
 }
