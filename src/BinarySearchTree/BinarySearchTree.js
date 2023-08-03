@@ -40,10 +40,6 @@ export class Tree {
     }
   }
 
-  test() {
-    return false;
-  }
-
   search(root, value) {
     if (!root) {
       return 23;
@@ -55,6 +51,53 @@ export class Tree {
       } else {
         return this.search(root.right, value);
       }
+    }
+  }
+
+  preOrder(root) {
+    if (root) {
+      console.log(root.value);
+      this.preOrder(root.left);
+      this.preOrder(root.right);
+    }
+  }
+
+  inOrder(root) {
+    if (root) {
+      this.inOrder(root.left);
+      console.log(root.value);
+      this.inOrder(root.right);
+    }
+  }
+
+  levelOrder() {
+    const queue = [];
+    queue.push(this.root);
+    while (queue.length) {
+      let curr = queue.shift();
+      console.log(curr.value);
+      if (curr.left) {
+        queue.push(curr.left);
+      }
+      if (curr.right) {
+        queue.push(curr.right);
+      }
+    }
+  }
+
+  min(root) {
+    if (!root.left) {
+      return root.value;
+    } else {
+      return this.min(root.left);
+    }
+  }
+
+  max(root) {
+    if (!root.right) {
+      return root.value;
+    } else {
+      return this.max(root.right);
     }
   }
 }

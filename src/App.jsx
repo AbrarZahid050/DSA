@@ -35,8 +35,10 @@ function App() {
   tree.insert(15);
   tree.insert(3);
   tree.insert(7);
-
-  console.log(tree.search(tree.root, 7));
+  // tree.inOrder(tree.root);
+  // tree.levelOrder();
+  console.log(tree.min(tree.root));
+  console.log(tree.max(tree.root));
 
   return (
     <div>
