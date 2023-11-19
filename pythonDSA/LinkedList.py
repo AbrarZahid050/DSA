@@ -15,6 +15,18 @@ class LinkedList:
     def showSize(self):
         return self.size
 
+    def append(self, value):
+        node = Node(value)
+        if self.isEmpty():
+            self.head = node
+        else:
+            prevPointer = self.head
+            while prevPointer.next:
+                prevPointer = prevPointer.next
+            prevPointer.next = node
+        self.size += 1
+
+
     def removeFrom(self, index):
         if index < 0 or index >= self.size:
             return None
@@ -72,16 +84,6 @@ class LinkedList:
             currPointer = nextPointer
         self.head = prevPointer
 
-    def append(self, value):
-        node = Node(value)
-        if self.isEmpty():
-            self.head = node
-        else:
-            prevPointer = self.head
-            while prevPointer.next:
-                prevPointer = prevPointer.next
-            prevPointer.next = node
-        self.size += 1
 
     def prepend(self, value):
         node = Node(value)

@@ -1,50 +1,21 @@
-import { Stack } from "./stack/Stack";
-import { Queue } from "./queue/Queue";
-import { EfficientQueue } from "./queue/EfficientQueue";
-import { CircularQueue } from "./queue/Circular Queue/CircularQueue";
-import { TestCircular } from "./queue/Circular Queue/TestCircular";
-//linked-lists:
-import { LinkedList } from "./linkedList/LinkedList";
-import LinkedListWithTail from "./linkedList/LinkedListTail";
-import { LinkedListStack } from "./linkedList/LinkedListStack";
-import { LinkedListQueue } from "./linkedList/LinkedListQueue";
-import { DoublyLinkedList } from "./DoublyLinkedList/DoublyLinkedList";
-//hash-table:
-import { HashTable } from "./HashTable/HashTable";
-//binary-search tree:
-import { Tree } from "./BinarySearchTree/BinarySearchTree";
-//style:
-import "./App.css";
+import { LinkedList } from "./linkedList/Test";
+import { useKeycloak } from "@react-keycloak/web";
 
-function App() {
-  const stack = new Stack();
-  const queue = new Queue();
-  const efficientQueue = new EfficientQueue();
-  const circularQueue = new CircularQueue(5);
-  const Test = new TestCircular(3);
+const App = () => {
+  const { keycloak, initialized } = useKeycloak();
+
   const list = new LinkedList();
-  const listWithTail = new LinkedListWithTail();
-  const linkedListStack = new LinkedListStack();
-  const linkedListQueue = new LinkedListQueue();
-  const DoublyList = new DoublyLinkedList();
-  const hashTable = new HashTable(50);
-  const tree = new Tree();
+  list.prepend(5);
+  list.prepend(0);
+  list.append(10);
+  list.append(15);
+  list.prepend(-5);
+  list.display();
+  list.removeFromFront();
+  console.log("tail ->", list.removeFromEnd());
+  list.display();
 
-  tree.insert(10);
-  tree.insert(5);
-  tree.insert(15);
-  tree.insert(3);
-  tree.insert(7);
-
-  // tree.inOrder(tree.root);
-  tree.delete(3);
-  tree.levelOrder();
-
-  return (
-    <div>
-      <div>Data Structure and Algo</div>
-    </div>
-  );
-}
+  return <button onClick={() => keycloak.login()}>Login</button>;
+};
 
 export default App;
